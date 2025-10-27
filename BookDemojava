@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+class Book {
+    // Instance members
+    int Bookid;
+    String Bookname;
+    int No_of_pages;
+    int Publisherid;
+    double Price;
+
+    // Method to set book details
+    void setDetails(int id, String name, int pages, int pubid, double price) {
+        Bookid = id;
+        Bookname = name;
+        No_of_pages = pages;
+        Publisherid = pubid;
+        Price = price;
+    }
+
+    // Method to display book details
+    void display() {
+        System.out.println("Book ID: " + Bookid + ", Book Name: " + Bookname + 
+                           ", Pages: " + No_of_pages + ", Publisher ID: " + Publisherid + 
+                           ", Price: " + Price);
+    }
+}
+
+public class BookDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of books: ");
+        int n = sc.nextInt();
+        sc.nextLine(); // clear buffer
+
+        // Create an array of n Book objects
+        Book books[] = new Book[n];
+
+        // Input book details
+        for (int i = 0; i < n; i++) {
+            books[i] = new Book();
+            System.out.println("\nEnter details for Book " + (i + 1) + ":");
+            System.out.print("Book ID: ");
+            int id = sc.nextInt();
+            sc.nextLine(); // clear buffer
+            System.out.print("Book Name: ");
+            String name = sc.nextLine();
+            System.out.print("No. of Pages: ");
+            int pages = sc.nextInt();
+            System.out.print("Publisher ID: ");
+            int pubid = sc.nextInt();
+            System.out.print("Price: ");
+            double price = sc.nextDouble();
+
+            books[i].setDetails(id, name, pages, pubid, price);
+        }
+
+        // (i) Find most expensive book
+        double maxPrice = books[0].Price;
+        int index = 0;
+        for (int i = 1; i < n; i++) {
+            if (books[i].Price > maxPrice) {
+                maxPrice = books[i].Price;
+                index = i;
+            }
+        }
+        System.out.println("\n📘 Most Expensive Book:");
+        System.out.println("Book Name: " + books[index].Bookname + ", Book ID: " + books[index].Bookid);
+
+        // (ii) Display books of given Publisher ID
+        System.out.print("\nEnter Publisher ID to search: ");
+        int searchId = sc.nextInt();
+
+        System.out.println("\n📚 Books published by Publisher ID " + searchId + ":");
+        boolean found = false;
+        for (int i = 0; i < n; i++) {
+            if (books[i].Publisherid == searchId) {
+                System.out.println("Book Name: " + books[i].Bookname + ", Book ID: " + books[i].Bookid);
+                found = true;
+            }
+        }
+        if (!found)
+            System.out.println("No books found for this Publisher ID.");
+
+        sc.close();
+    }
+}

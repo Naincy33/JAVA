@@ -1,23 +1,31 @@
-class Demo {
 
-    // Generic Method
-    public <T> void design(T n) {
-        int num = Integer.parseInt(n.toString());
+interface BankAccount {
 
-        for (int i = 1; i <= num; i++) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
+    default void calculateInterest() {
+        System.out.println("Calculating interest for account...");
     }
+}
 
-    public static void main1(String[] args) {
+class SavingsAccount implements BankAccount {
 
-        Demo obj = new Demo();
+    @Override
+    public void calculateInterest() {
+        System.out.println("Savings Account: Interest calculated at 4.5% per annum.");
+    }
+}
 
-        obj.design(4);   // passing integer
-        obj.design(5.0); // passing double
-        obj.design("3"); // passing String
+class CurrentAccount implements BankAccount {
+    // uses the default method
+}
+
+public class BankDemo {
+
+    public static void main(String[] args) {
+
+        SavingsAccount sa = new SavingsAccount();
+        CurrentAccount ca = new CurrentAccount();
+
+        sa.calculateInterest(); // calls overridden method
+        ca.calculateInterest(); // calls default method
     }
 }

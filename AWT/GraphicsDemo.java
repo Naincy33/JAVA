@@ -57,9 +57,9 @@ public class GraphicsDemo extends Frame {
         /* -------- Draw Polygon -------- */
         g.setColor(Color.BLUE);
 
-        int xpoints[] = {20, 200, 20, 200, 20};
-        int ypoints[] = {450, 450, 650, 650, 450};
-        int num = 5;
+        int xpoints[] = {20, 200, 20, 200, 20,30};
+        int ypoints[] = {450, 450, 650, 650, 450,300};
+        int num = 6;
 
         g.drawPolygon(xpoints, ypoints, num);
     }

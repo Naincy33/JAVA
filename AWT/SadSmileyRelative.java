@@ -42,7 +42,7 @@ public class SadSmileyRelative extends Frame {
 
         /* -------- SAD MOUTH (Arc) -------- */
         // 0° start makes it sad 😢
-        g.drawArc(cx + 35, cy + 110, 80, 50, 0, 180);
+        g.drawArc(cx + 35, cy + 110, 80, 45, 0, 180);
 
         /* -------- CHEEKS / DIM PLES -------- */
         //g.drawLine(cx + 40, cy + 115, cx + 30, cy + 135); // left cheek

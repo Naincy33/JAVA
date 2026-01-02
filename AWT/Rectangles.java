@@ -6,11 +6,22 @@ public class Rectangles extends Frame {
 
     public void paint(Graphics g) {
 
-        g.drawRect(20, 50, 60, 60);          // empty rectangle
-        g.fillRect(100, 50, 60, 50);         // filled rectangle
+        // Red empty rectangle
+        g.setColor(Color.RED);
+        g.drawRect(20, 40, 80, 60);
 
-        g.drawRoundRect(190, 50, 60, 50, 15, 15);   // rounded empty
-        g.fillRoundRect(70, 200, 140, 100, 30, 40); // rounded filled
+        // Blue filled rectangle
+        g.setColor(Color.BLUE);
+        g.fillRect(130, 40, 80, 60);
+
+        // Green rounded rectangle (empty)
+        g.setColor(Color.GREEN);
+        g.drawRoundRect(240, 40, 80, 60, 20, 20);
+
+        // Magenta filled rounded rectangle
+        g.setColor(Color.MAGENTA);
+        g.fillRoundRect(90, 130, 140, 90, 30, 40);
+
     }
 
     public static void main(String args[]) {

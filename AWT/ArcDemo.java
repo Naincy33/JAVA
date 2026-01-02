@@ -2,18 +2,15 @@ package AWT;
 
 import java.awt.*;
 
-
-public class Lines extends Frame {
+public class ArcDemo extends Frame {
 
     public void paint(Graphics g) {
-
-        g.drawLine(0, 0, 100, 100);
-
+        g.drawArc(50, 50, 150, 150, 0, 180);
     }
 
     public static void main(String[] args) {
-        Lines f = new Lines();
-        f.setSize(500, 500);
+        ArcDemo f = new ArcDemo();
+        f.setSize(300, 300);
         f.setVisible(true);
     }
 }

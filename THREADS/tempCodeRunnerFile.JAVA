@@ -1,3 +1,5 @@
+package THREADS;
+
 // Thread A extending Thread class
 class ThreadA extends Thread {
     public void run() {
@@ -54,3 +56,4 @@ public class MultiThreadDemo {
         t3.start();
     }
 }
+

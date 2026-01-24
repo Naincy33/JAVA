@@ -73,9 +73,14 @@ public class DemoPolymorphism {
         employees[1] = new Tester("Riya", 45000, "Selenium");
         employees[2] = new Manager("Rahul", 80000, 15000);
 
-        for (Employee e : employees) {
+        /*for (Employee e : employees) {
             System.out.println("---- Employee Details ----");
             e.displayDetails();   // runtime polymorphism
+            */
+        for (int i = 0; i < employees.length; i++) {
+            System.out.println("---- Employee Details ----");
+            employees[i].displayDetails();   // runtime polymorphism
+            
         }
     }
 }

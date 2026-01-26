@@ -1,81 +1,31 @@
-// Parent class
-class Employee {
-    String name;
-    double salary;
+// Interface with abstract and static methods
+interface CurrencyConverter {
+    void billAmount(double amountInDollars);
 
-    Employee(String name, double salary) {
-        this.name = name;
-        this.salary = salary;
-    }
-
-    void displayDetails() {
-        System.out.println("Name: " + name);
-        System.out.println("Salary: " + salary);
+    // Static utility method
+    static double dollarToInr(double amount) {
+        return amount * 83;  // 1 USD = 83 INR
     }
 }
 
-// Developer subclass
-class Developer extends Employee {
-    String programmingLanguage;
+// Billing class implementing the interface
+class Bill implements CurrencyConverter {
 
-    Developer(String name, double salary, String programmingLanguage) {
-        super(name, salary);   // call parent constructor
-        this.programmingLanguage = programmingLanguage;
-    }
-
-    @Override
-    void displayDetails() {
-        super.displayDetails();
-        System.out.println("Programming Language: " + programmingLanguage);
+    public void billAmount(double amountInDollars) {
+        double amountInInr = CurrencyConverter.dollarToInr(amountInDollars);
+        System.out.println("Bill Amount in INR: " + amountInInr);
     }
 }
 
-// Tester subclass
-class Tester extends Employee {
-    String testingTool;
-
-    Tester(String name, double salary, String testingTool) {
-        super(name, salary);
-        this.testingTool = testingTool;
-    }
-
-    @Override
-    void displayDetails() {
-        super.displayDetails();
-        System.out.println("Testing Tool: " + testingTool);
-    }
-}
-
-// Manager subclass
-class Manager extends Employee {
-    double bonus;
-
-    Manager(String name, double salary, double bonus) {
-        super(name, salary);
-        this.bonus = bonus;
-    }
-
-    @Override
-    void displayDetails() {
-        super.displayDetails();
-        System.out.println("Bonus: " + bonus);
-    }
-}
-
-// Main class
-public class DemoPolymorphism {
+public class BillingSystem {
     public static void main(String[] args) {
 
-        // Polymorphism using parent reference
-        Employee[] employees = new Employee[3];
+        // Calling static method using interface name
+        double converted = CurrencyConverter.dollarToInr(10);
+        System.out.println("10 USD in INR: " + converted);
 
-        employees[0] = new Developer("Amit", 60000, "Java");
-        employees[1] = new Tester("Riya", 45000, "Selenium");
-        employees[2] = new Manager("Rahul", 80000, 15000);
-
-        for (Employee e : employees) {
-            System.out.println("---- Employee Details ----");
-            e.displayDetails();   // runtime polymorphism
-        }
+        // Using implementing class
+        Bill bill = new Bill();
+        bill.billAmount(1208); // 1208 USD converted to INR
     }
 }

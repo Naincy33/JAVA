@@ -26,6 +26,6 @@ public class BillingSystem {
 
         // Using implementing class
         Bill bill = new Bill();
-        bill.billAmount(25); // 25 USD converted to INR
+        bill.billAmount(1208); // 1208 USD converted to INR
     }
 }

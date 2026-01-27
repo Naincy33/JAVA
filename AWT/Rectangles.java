@@ -1,7 +1,6 @@
 package AWT;
 
 import java.awt.*;
-
 public class Rectangles extends Frame {
 
     public void paint(Graphics g) {

@@ -52,7 +52,7 @@ public class GraphicsDemo extends Frame {
         g.drawArc(10, 40, 70, 70, 0, 75);
 
         g.setColor(Color.YELLOW);
-        g.fillArc(100, 40, 70, 70, 0, 75);
+        g.fillArc(100, 40, 70, 70, 0, -180);
 
         /* -------- Draw Polygon -------- */
         g.setColor(Color.BLUE);
@@ -61,7 +61,7 @@ public class GraphicsDemo extends Frame {
         int ypoints[] = {450, 450, 650, 650, 450,300};
         int num = 6;
 
-        g.drawPolygon(xpoints, ypoints, num);
+        g.fillPolygon(xpoints, ypoints, num);
     }
 
     // Main method
